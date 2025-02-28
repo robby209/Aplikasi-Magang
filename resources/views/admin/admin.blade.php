@@ -1,4 +1,4 @@
-@extends('admin.adminLayout')
+@extends('admin.dashboardAdmin')
 
 @section('title', 'Daftar Pendaftar PKL')
 
@@ -74,132 +74,6 @@
         </div>
     </div>
 
-    <style>
-        /* CSS untuk tampilan admin dan modal */
-        .admin-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid #dee2e6;
-        }
-        .form-title {
-            text-align: center;
-            color: var(--primary-color);
-            margin-bottom: 40px;
-            font-size: 2.2rem;
-        }
-        .admin-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        .admin-table th,
-        .admin-table td {
-            padding: 15px;
-            border: 1px solid #dee2e6;
-            text-align: center;
-        }
-        .admin-table thead {
-            background: var(--primary-color);
-            color: #fff;
-        }
-        .admin-table tbody tr:nth-child(even) {
-            background: #f8f9fa;
-        }
-        .action-btn {
-            background: linear-gradient(135deg, var(--primary-color), #0056b3);
-            color: white;
-            padding: 6px 12px;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-        .action-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
-        }
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-        }
-        .modal-content {
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            width: 500px;
-            max-width: 90%;
-        }
-        .modal-actions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-        }
-        .left-actions {
-            flex: 1;
-        }
-        .right-actions {
-            display: flex;
-            gap: 10px;
-        }
-        .close-btn {
-            background: #6c757d;
-            color: #fff;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .close-btn:hover {
-            background: #5a6268;
-        }
-        .accept-btn {
-            background: #28a745;
-            color: #fff;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .accept-btn:hover {
-            background: #218838;
-        }
-        .pdf-btn {
-            background: #17a2b8;
-            color: #fff;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .pdf-btn:hover {
-            background: #138496;
-        }
-        .reject-btn {
-            background: #dc3545;
-            color: #fff;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .reject-btn:hover {
-            background: #c82333;
-        }
-    </style>
-
     <script>
         const detailButtons = document.querySelectorAll('.detail-btn');
         const detailModal = document.getElementById('detailModal');
@@ -222,7 +96,8 @@
                 document.getElementById('modalInstansi').textContent = this.getAttribute('data-instansi');
                 document.getElementById('modalAlamat').textContent = this.getAttribute('data-alamat');
                 document.getElementById('modalTujuan').textContent = this.getAttribute('data-tujuan');
-                document.getElementById('modalWaktu').textContent = this.getAttribute('data-start_date') + ' sampai ' + this.getAttribute('data-end_date');
+                document.getElementById('modalWaktu').textContent = 
+                    this.getAttribute('data-start_date') + ' sampai ' + this.getAttribute('data-end_date');
                 
                 detailModal.style.display = 'flex';
             });

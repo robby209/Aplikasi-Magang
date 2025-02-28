@@ -1,0 +1,197 @@
+/* resources/css/app.css */
+
+/* Variabel warna */
+:root {
+    --primary-color: #007BFF;       /* Warna utama sidebar */
+    --secondary-color: #f8f9fa;     /* Warna background konten */
+    --accent-color: #FF7F50;        /* Warna highlight active menu */
+    --light-bg: #ffffff;
+    --dark-text: #343a40;
+}
+
+/* Reset dasar */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--dark-text);
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 240px;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 25px;
+    position: fixed;
+    height: 100vh;
+    border-right: 1px solid #0056b3;
+    transition: all 0.3s;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.brand-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    margin: 8px 0;
+    border-radius: 10px;
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    background: rgba(255,255,255,0.05);
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateX(5px);
+}
+
+.nav-item.active {
+    background: var(--accent-color);
+    box-shadow: 0 4px 15px rgba(255,127,80,0.3);
+}
+
+.nav-icon {
+    font-size: 1.2rem;
+    min-width: 30px;
+}
+
+.nav-text {
+    margin-left: 15px;
+    white-space: nowrap;
+}
+
+/* Konten Utama */
+.content {
+    margin-left: 240px;
+    padding: 40px;
+    background: var(--secondary-color);
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+/* Responsif (max-width 768px) */
+@media (max-width: 768px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+    .content {
+        margin-left: 0;
+    }
+}
+
+/* FORM */
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #dee2e6;
+}
+
+.form-title {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+}
+
+.input-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    background: #ffffff;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+.date-row {
+    display: flex;
+    gap: 20px;
+}
+
+.date-row .input-group {
+    flex: 1;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, var(--primary-color), #0056b3);
+    color: #fff;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: block;
+    margin: 30px auto 0;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* Alert */
+.alert {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+@media (max-width: 768px) {
+    .date-row {
+        flex-direction: column;
+    }
+}

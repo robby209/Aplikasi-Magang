@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('dashboard')
 @extends('user.profile.layoutProfile')
 
 @section('title', 'Profil Pengguna')

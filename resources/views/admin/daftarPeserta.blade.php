@@ -1,4 +1,4 @@
-@extends('admin.adminLayout')
+@extends('admin.dashboardAdmin')
 
 @section('title', 'Daftar Peserta PKL')
 
@@ -65,88 +65,6 @@
     </div>
 </div>
 
-<style>
-    .admin-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        background: #ffffff;
-        padding: 40px;
-        border-radius: 20px;
-        border: 1px solid #dee2e6;
-    }
-    .form-title {
-        text-align: center;
-        color: var(--primary-color);
-        margin-bottom: 40px;
-        font-size: 2.2rem;
-    }
-    .admin-table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    .admin-table th,
-    .admin-table td {
-        padding: 15px;
-        border: 1px solid #dee2e6;
-        text-align: center;
-    }
-    .admin-table thead {
-        background: var(--primary-color);
-        color: #fff;
-    }
-    .admin-table tbody tr:nth-child(even) {
-        background: #f8f9fa;
-    }
-    .action-btn {
-        background: linear-gradient(135deg, var(--primary-color), #0056b3);
-        color: white;
-        padding: 6px 12px;
-        border: none;
-        border-radius: 5px;
-        font-size: 0.9rem;
-        cursor: pointer;
-        transition: all 0.3s;
-    }
-    .action-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
-    }
-    .modal-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0,0,0,0.5);
-        display: none;
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-    }
-    .modal-content {
-        background: #fff;
-        padding: 30px;
-        border-radius: 10px;
-        width: 500px;
-        max-width: 90%;
-    }
-    .modal-actions {
-        margin-top: 20px;
-        text-align: right;
-    }
-    .close-btn {
-        background: #6c757d;
-        color: #fff;
-        padding: 8px 16px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    .close-btn:hover {
-        background: #5a6268;
-    }
-</style>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const detailButtons = document.querySelectorAll('.detail-btn');
@@ -158,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const nama = this.getAttribute('data-nama');
             const judul = this.getAttribute('data-judul');
             const startDate = this.getAttribute('data-start_date');
-            const endDate = this.getAttribute('data-end_date');
+            const endDate = this.getAttribute('data_end_date');
             const instansi = this.getAttribute('data-instansi');
             const alamat = this.getAttribute('data-alamat');
             const tujuan = this.getAttribute('data-tujuan');

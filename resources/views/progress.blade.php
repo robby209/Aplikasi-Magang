@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('dashboard')
 
 @section('title', 'Progress PKL')
 

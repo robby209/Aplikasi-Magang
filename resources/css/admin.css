@@ -1,0 +1,223 @@
+/* admin.css */
+
+:root {
+    --primary-color: #007BFF;
+    --secondary-color: #f8f9fa;
+    --accent-color: #FF7F50;
+    --light-bg: #ffffff;
+    --dark-text: #343a40;
+}
+
+/* Reset & body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--light-bg);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    color: var(--dark-text);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    background: var(--primary-color);
+    color: white;
+    padding: 25px;
+    position: fixed;
+    height: 100%;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    border-right: 1px solid #0056b3;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    padding: 0 10px;
+}
+
+.brand-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    margin: 8px 0;
+    border-radius: 10px;
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.05);
+}
+
+.nav-item:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateX(5px);
+}
+
+.nav-item.active {
+    background: var(--accent-color);
+    box-shadow: 0 4px 15px rgba(255,127,80,0.3);
+}
+
+.nav-icon {
+    font-size: 1.2rem;
+    min-width: 30px;
+    transition: all 0.3s;
+}
+
+.nav-text {
+    margin-left: 15px;
+    white-space: nowrap;
+    transition: all 0.3s;
+}
+
+/* Konten */
+.content {
+    margin-left: 280px;
+    padding: 40px;
+    flex-grow: 1;
+    background: var(--light-bg);
+}
+
+/* admin.css */
+
+/* Bagian Container dan Judul */
+.admin-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #dee2e6;
+}
+
+.form-title {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+}
+
+/* Tabel Admin */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.admin-table th,
+.admin-table td {
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    text-align: center;
+}
+.admin-table thead {
+    background: var(--primary-color);
+    color: #fff;
+}
+.admin-table tbody tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+/* Tombol Aksi */
+.action-btn {
+    background: linear-gradient(135deg, var(--primary-color), #0056b3);
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* Default: hidden */
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+.modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 500px;
+    max-width: 90%;
+}
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.left-actions {
+    flex: 1;
+}
+.right-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Tombol di Modal */
+.close-btn {
+    background: #6c757d;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.close-btn:hover {
+    background: #5a6268;
+}
+.accept-btn {
+    background: #28a745;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.accept-btn:hover {
+    background: #218838;
+}
+.pdf-btn {
+    background: #17a2b8;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.pdf-btn:hover {
+    background: #138496;
+}
+.reject-btn {
+    background: #dc3545;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.reject-btn:hover {
+    background: #c82333;
+}
