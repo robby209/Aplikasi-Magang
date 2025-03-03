@@ -8,7 +8,11 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <!-- Atur cache agar tidak tersimpan -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
     <title>@yield('title', 'Dashboard')</title>
 
     <!-- Font Awesome -->
@@ -35,10 +39,14 @@
             <i class="fas fa-user-graduate nav-icon"></i>
             <span class="nav-text">Profil</span>
         </a>
-        <a href="{{ route('login') }}" class="nav-item {{ request()->routeIs('login') ? 'active' : '' }}">
+        <!-- Tombol Logout menggunakan form POST -->
+        <a href="#" class="nav-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             <i class="fas fa-sign-out-alt nav-icon"></i>
             <span class="nav-text">Logout</span>
         </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
     </div>
 
     <!-- MAIN CONTENT -->
@@ -47,15 +55,17 @@
     </div>
 
     <script>
-    // Mengaktifkan link sidebar
-    document.querySelectorAll('.nav-item').forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
-            this.classList.add('active');
-            window.location.href = this.href;
+        // Mengaktifkan link sidebar
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                // Abaikan event jika logout (karena ditangani form)
+                if(this.getAttribute('href') === '#') return;
+                e.preventDefault();
+                document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                this.classList.add('active');
+                window.location.href = this.href;
+            });
         });
-    });
     </script>
 </body>
 </html>

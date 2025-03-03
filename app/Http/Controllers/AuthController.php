@@ -30,10 +30,18 @@ class AuthController extends Controller
 
         // Cek kredensial menggunakan Auth::attempt()
         if (Auth::attempt($request->only('email', 'password'))) {
-            // Jika berhasil, redirect ke dashboard (atau halaman lain sesuai kebutuhan)
-            return redirect()->intended('form');
+            // Jika berhasil login, cek role user
+            $user = Auth::user();
+            if ($user->role === 'admin') {
+                // Jika admin, arahkan ke route 'admin'
+                return redirect()->route('admin');
+            } else {
+                // Jika bukan admin, arahkan ke route 'form'
+                return redirect()->route('form');
+            }
         }
 
+        // Jika login gagal, kembalikan ke halaman login dengan pesan error
         return back()->withErrors([
             'email' => 'Email atau password salah.',
         ]);
