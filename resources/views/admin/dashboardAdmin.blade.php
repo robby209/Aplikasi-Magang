@@ -3,58 +3,46 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>@yield('title', 'Dashboard')</title>
 
-    <!-- Font Awesome (opsional) -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    
-    <!-- Memanggil file login.css melalui Vite -->
-    @vite(['resources/css/login.css'])
+        @vite(['resources/css/admin.css'])
+
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 </head>
 <body>
-    <div class="login-container">
-        <div class="login-header">
-            <h2>Welcome Back</h2>
-            <p>Please login to continue</p>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <span class="brand-text">Admin Dashboard</span>
         </div>
 
-        @if ($errors->any())
-            <div class="error-message" style="display: block;">
-                {{ $errors->first() }}
-            </div>
-        @endif
+        <a href="{{ route('admin') }}" 
+           class="nav-item {{ request()->routeIs('admin') ? 'active' : '' }}">
+            <i class="fas fa-file-alt nav-icon"></i>
+            <span class="nav-text">Verifikasi & Persetujuan</span>
+        </a>
 
-        <form action="{{ route('login') }}" method="POST">
-            @csrf
-            <div class="input-group">
-                <i class="fas fa-envelope"></i>
-                <input 
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    required
-                >
-            </div>
+        <a href="{{ route('daftar-peserta') }}" 
+           class="nav-item {{ request()->routeIs('progress') ? 'active' : '' }}">
+            <i class="fas fa-tasks nav-icon"></i>
+            <span class="nav-text">Daftar Peserta</span>
+        </a>
 
-            <div class="input-group">
-                <i class="fas fa-lock"></i>
-                <input 
-                    type="password" 
-                    name="password" 
-                    placeholder="Password" 
-                    required
-                    minlength="8" 
-                    pattern="^(?=.*[A-Za-z])(?=.*\\d).{8,}$"
-                    title="Minimum 8 characters with at least 1 letter and 1 number"
-                >
-            </div>
+        <a href="{{ route('profile') }}" 
+           class="nav-item {{ request()->routeIs('profile') ? 'active' : '' }}">
+            <i class="fas fa-user-graduate nav-icon"></i>
+            <span class="nav-text">Profil</span>
+        </a>
 
-            <button type="submit" class="login-btn">Sign In</button>
-        </form>
+        <a href="{{ route('login') }}" class="nav-item">
+            <i class="fas fa-sign-out-alt nav-icon"></i>
+            <span class="nav-text">Logout</span>
+        </a>
+    </div>
 
-        <div class="additional-links">
-            <a href="/register">Create new account</a>
-        </div>
+    <div class="content">
+        @yield('content')
     </div>
 </body>
 </html>
