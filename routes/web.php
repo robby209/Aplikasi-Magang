@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PklController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 // ==========================
@@ -34,7 +35,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [PageController::class, 'showProfile'])->name('profile');
 
     // EDIT PROFILE
-    Route::post('/profile/update', [AuthController::class, 'updateProfile'])->name('profile.update');
+    Route::post('/profile/update', [ProfileController::class, 'updateProfile'])->name('profile.update');
 
     // LOGOUT - Harus diautentikasi
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
