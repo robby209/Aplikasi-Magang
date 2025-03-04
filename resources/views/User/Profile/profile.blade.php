@@ -1,5 +1,10 @@
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+<!-- Memanggil file melalui Vite -->
+@vite(['resources/css/profile.css'])
+
 @extends('dashboard')
-@extends('user.profile.layoutProfile')
 
 @section('title', 'Profil Pengguna')
 
