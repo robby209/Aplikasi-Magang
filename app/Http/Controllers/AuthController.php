@@ -57,7 +57,6 @@ class AuthController extends Controller
 
     /**
      * Proses pendaftaran pengguna.
-     * Hanya menggunakan name, email, dan password (dengan konfirmasi).
      */
     public function register(Request $request)
     {
@@ -77,6 +76,44 @@ class AuthController extends Controller
 
         // Redirect ke halaman login dengan pesan sukses
         return redirect()->route('login')->with('success', 'Registrasi berhasil! Silakan login.');
+    }
+
+    /**
+     * Menampilkan form edit profil.
+     */
+    public function editProfile()
+    {
+        // Ambil user yang sedang login
+        $user = Auth::user();
+        // Tampilkan form edit profil
+        return view('profile.edit', compact('user'));
+    }
+
+    /**
+     * Memperbarui data profil user.
+     */
+    public function updateProfile(Request $request)
+    {
+        /** @var \App\Models\User $user */
+        $user = Auth::user();
+
+        // Validasi jika diperlukan
+        $request->validate([
+            'name'  => 'required|string|max:255',
+            'email' => 'required|email',
+            // Tambahkan validasi lain sesuai kebutuhan
+        ]);
+
+        // Update data user
+        $user->name  = $request->name;
+        $user->email = $request->email;
+        // Jika ingin update password, telepon, alamat, dll. silakan tambahkan di sini
+
+        // Simpan
+        $user->save();
+
+        // Redirect kembali ke profil
+        return redirect()->route('profile')->with('success', 'Profil berhasil diperbarui!');
     }
 
     /**

@@ -58,7 +58,7 @@
           required
           minlength="8"
           pattern="^(?=.*[A-Za-z])(?=.*\d).{8,}$"
-          title="Minimum 8 characters with at least 1 letter and 1 number"
+          title="Katasandi Harus minimal 8 karakter dan mengandung setidaknya 1 huruf dan 1 angka"
         >
       </div>
 

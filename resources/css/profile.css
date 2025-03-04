@@ -63,10 +63,15 @@
     padding: 2rem;
 }
 
-.profile-section {
-    margin-bottom: 2rem;
+/* Section Header (Judul + Tombol Edit) */
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Judul di kiri, tombol di kanan */
+    margin-bottom: 1.5rem;
 }
 
+/* Bagian judul section */
 .profile-section h3 {
     color: #6c757d;
     font-size: 1.1rem;
@@ -107,4 +112,20 @@
 
 .help-section a i {
     margin-right: 8px;
+}
+
+/* Tombol Edit */
+.btn-edit {
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+.btn-edit:hover {
+    background-color: #0056b3;
 }

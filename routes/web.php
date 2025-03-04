@@ -28,7 +28,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/form', [PageController::class, 'showForm'])->name('form');
     Route::get('/progress', [PageController::class, 'showProgress'])->name('progress');
     Route::get('/profile', [PageController::class, 'showProfile'])->name('profile');
+    
+    // Route untuk Edit Profile
     Route::get('/profile/edit', [AuthController::class, 'editProfile'])->name('profile.edit');
+    Route::post('/profile/update', [AuthController::class, 'updateProfile'])->name('profile.update');
 
     // Logout
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

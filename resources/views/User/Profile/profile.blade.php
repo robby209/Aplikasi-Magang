@@ -1,9 +1,4 @@
-<!-- Font Awesome -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-
-<!-- Memanggil file melalui Vite -->
 @vite(['resources/css/profile.css'])
-
 @extends('dashboard')
 
 @section('title', 'Profil Pengguna')
@@ -14,14 +9,29 @@
         <div class="profile-sidebar">
             <div class="profile-header">
                 <!-- Gunakan foto profil jika tersedia, jika tidak, tampilkan avatar default -->
-                <img src="{{ $user->photo_path ? asset('storage/' . $user->photo_path) : asset('images/avatar.png') }}" alt="Profile Picture" class="profile-img">
+                <img 
+                    src="{{ $user->photo_path 
+                            ? asset('storage/' . $user->photo_path) 
+                            : asset('storage/profile_images/user.png') 
+                         }}" 
+                    alt="" 
+                    class="profile-img"
+                >
                 <h2>{{ $user->name }}</h2>
             </div>
 
             <nav class="profile-nav">
                 <ul>
-                    <li class="active"><a href="#"><i class="fas fa-user"></i> Profil Saya</a></li>
-                    <li><a href="#"><i class="fas fa-envelope"></i> Pesan</a></li>
+                    <li class="active">
+                        <a href="#">
+                            <i class="fas fa-user"></i> Profil Saya
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-envelope"></i> Pesan
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -29,7 +39,12 @@
         <!-- Right Content -->
         <div class="profile-content">
             <div class="profile-section">
-                <h3>INFORMASI PROFIL</h3>
+                <!-- Header bagian INFORMASI PROFIL -->
+                <div class="section-header">
+                    <h3>INFORMASI PROFIL</h3>
+                    <!-- Tombol Edit -->
+                    <a href="{{ route('profile.edit') }}" class="btn-edit">Edit</a>
+                </div>
                 <div class="profile-info">
                     <div class="info-group">
                         <label>Nama</label>
