@@ -14,10 +14,12 @@ class PageController extends Controller
         return view('form');
     }
 
-    // Menampilkan halaman progress PKL
+    // Menampilkan halaman progress PKL dengan data pendaftaran pengguna
     public function showProgress()
     {
-        return view('progress');
+        // Mengambil data pendaftaran untuk user yang sedang login
+        $registrations = PklRegistration::where('user_id', Auth::id())->get();
+        return view('progress', compact('registrations'));
     }
 
     // Menampilkan halaman profil pengguna
@@ -44,10 +46,10 @@ class PageController extends Controller
         return view('admin.daftarPeserta', ['participants' => $participants]);
     }
 
-    // (Opsional) Tambahkan method untuk menampilkan detail pendaftar admin
+    // (Opsional) Method untuk menampilkan detail pendaftar admin
     public function showAdminDetail($id)
     {
-        // Misalnya: mengambil detail pendaftaran berdasarkan id
+        // Mengambil detail pendaftaran berdasarkan id
         $registration = PklRegistration::with('user')->findOrFail($id);
         return view('admin.detail', ['registration' => $registration]);
     }

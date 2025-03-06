@@ -195,3 +195,72 @@ body {
         flex-direction: column;
     }
 }
+
+/* CSS tambahan untuk halaman Progress PKL */
+.progress-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 40px;
+    background: var(--light-bg);
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.progress-container .form-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--dark-text);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+.row-box {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.box {
+    flex: 1;
+    background: var(--secondary-color);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.user-table th,
+.user-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-table th {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.user-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Responsif untuk halaman Progress PKL */
+@media (max-width: 768px) {
+    .row-box {
+        flex-direction: column;
+    }
+}
