@@ -26,11 +26,6 @@
                             <i class="fas fa-user"></i> Profil Saya
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="fas fa-envelope"></i> Pesan
-                        </a>
-                    </li>
                 </ul>
             </nav>
         </div>

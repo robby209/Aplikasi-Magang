@@ -73,22 +73,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     detailButtons.forEach(button => {
         button.addEventListener('click', function() {
-            const nama = this.getAttribute('data-nama');
-            const judul = this.getAttribute('data-judul');
+            const nama      = this.getAttribute('data-nama');
+            const judul     = this.getAttribute('data-judul');
             const startDate = this.getAttribute('data-start_date');
-            const endDate = this.getAttribute('data_end_date');
-            const instansi = this.getAttribute('data-instansi');
-            const alamat = this.getAttribute('data-alamat');
-            const tujuan = this.getAttribute('data-tujuan');
-            const telepon = this.getAttribute('data-telepon');
+            const endDate   = this.getAttribute('data-end_date');
+            const instansi  = this.getAttribute('data-instansi');
+            const alamat    = this.getAttribute('data-alamat');
+            const tujuan    = this.getAttribute('data-tujuan');
+            const telepon   = this.getAttribute('data-telepon');
 
-            document.getElementById('modalNama').textContent = nama;
-            document.getElementById('modalJudul').textContent = judul;
+            document.getElementById('modalNama').textContent    = nama;
+            document.getElementById('modalJudul').textContent   = judul;
             document.getElementById('modalTanggal').textContent = startDate + ' - ' + endDate;
             document.getElementById('modalInstansi').textContent = instansi;
-            document.getElementById('modalAlamat').textContent = alamat;
-            document.getElementById('modalTujuan').textContent = tujuan;
-            document.getElementById('modalTelepon').textContent = telepon;
+            document.getElementById('modalAlamat').textContent   = alamat;
+            document.getElementById('modalTujuan').textContent   = tujuan;
+            document.getElementById('modalTelepon').textContent  = telepon;
 
             detailModal.style.display = 'flex';
         });

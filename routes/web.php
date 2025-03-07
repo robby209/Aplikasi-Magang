@@ -9,10 +9,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Redirect;
 
-// Gunakan route dari RiwayatController untuk '/progress'
-Route::get('/progress', [RiwayatController::class, 'showProgress'])->name('progress');
-
-
 // ==========================
 // PUBLIC ROUTES (Tanpa Login)
 // ==========================
@@ -31,28 +27,30 @@ Route::get('/register', function () {
 Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 
-
 // ===========================
 // AUTHENTICATED ROUTES (Login)
 // ==========================
 Route::middleware(['auth'])->group(function () {
 
-    // ---------- USER ROUTES ----------
+    // Halaman form untuk user
     Route::get('/form', [PageController::class, 'showForm'])->name('form');
-    // Hapus route '/progress' dari sini agar tidak terjadi konflik
-    Route::get('/profile', [PageController::class, 'showProfile'])->name('profile');
 
-    // EDIT PROFILE
+    // Halaman progress (hanya bisa diakses jika login)
+    Route::get('/progress', [RiwayatController::class, 'showProgress'])->name('progress');
+
+    // Halaman profile
+    Route::get('/profile', [PageController::class, 'showProfile'])->name('profile');
+    
+    // Edit/Update profile
     Route::post('/profile/update', [ProfileController::class, 'updateProfile'])->name('profile.update');
 
-    // LOGOUT - Harus diautentikasi
+    // Logout
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    // ---------- PKL ROUTES ----------
+    // PKL Routes
     Route::post('/pkl-register', [PklController::class, 'register'])->name('pkl.register');
     Route::post('/pkl-registrations/{id}/status', [PklController::class, 'updateStatus'])->name('pkl.updateStatus');
 });
-
 
 // ==========================
 // ADMIN ROUTES (Hanya Admin)
