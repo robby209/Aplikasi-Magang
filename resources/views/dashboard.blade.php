@@ -33,7 +33,7 @@
         </a>
         <a href="{{ route('progress') }}" class="nav-item {{ request()->routeIs('progress') ? 'active' : '' }}">
             <i class="fas fa-tasks nav-icon"></i>
-            <span class="nav-text">Progress</span>
+            <span class="nav-text">Riwayat Pendaftaran</span>
         </a>
         <a href="{{ route('profile') }}" class="nav-item {{ request()->routeIs('profile') ? 'active' : '' }}">
             <i class="fas fa-user-graduate nav-icon"></i>

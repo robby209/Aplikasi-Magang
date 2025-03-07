@@ -196,71 +196,92 @@ body {
     }
 }
 
-/* CSS tambahan untuk halaman Progress PKL */
-.progress-container {
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 40px;
-    background: var(--light-bg);
-    border: 1px solid #dee2e6;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+
+/* ---------------------------------------
+   DESAIN UNTUK HALAMAN PROGRESS
+---------------------------------------- */
+
+/* Wrapper utama */
+.progress-section {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 30px 20px;
 }
 
-.progress-container .form-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: var(--dark-text);
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 10px;
-}
-
-.row-box {
+/* Card container */
+.progress-card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
     display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
 
-.box {
-    flex: 1;
-    background: var(--secondary-color);
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid #e0e0e0;
-}
-
-.box h2 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: var(--primary-color);
-}
-
-.user-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-}
-
-.user-table th,
-.user-table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-.user-table th {
-    background: var(--primary-color);
+/* Bagian header card (bisa pakai linear-gradient) */
+.progress-header {
+    background: linear-gradient(135deg, var(--primary-color), #0056b3);
+    padding: 30px 20px;
     color: #fff;
 }
 
-.user-table tr:hover {
-    background-color: #f1f1f1;
+.progress-title {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
 }
 
-/* Responsif untuk halaman Progress PKL */
-@media (max-width: 768px) {
-    .row-box {
-        flex-direction: column;
-    }
+.progress-subtitle {
+    margin-top: 8px;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.8);
+}
+
+/* Isi card */
+.progress-body {
+    padding: 20px;
+}
+
+/* Tabel riwayat */
+.progress-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.progress-table thead {
+    background: #f2f2f2;
+}
+
+.progress-table thead th {
+    padding: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+}
+
+.progress-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.progress-table tbody tr:hover {
+    background: #f9f9f9;
+}
+
+.progress-table td {
+    padding: 12px;
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Baris kosong */
+.empty-row {
+    text-align: center;
+    font-style: italic;
+    color: #888;
 }

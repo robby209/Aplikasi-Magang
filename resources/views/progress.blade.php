@@ -1,62 +1,54 @@
 @extends('dashboard')
 
-@section('title', 'Progress PKL')
+@section('title', 'Riwayat Permohonan')
 
 @section('content')
-<div class="progress-container">
-    <h1 class="form-title">Progress PKL</h1>
-
-    <div class="row-box">
-        <!-- Riwayat Pendaftaran Section -->
-        <div class="box">
-            <h2>Riwayat Pendaftaran</h2>
-            <table class="user-table">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Tanggal Pendaftaran</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($registrations as $index => $registration)
-                    <tr>
-                        <td>{{ $index + 1 }}</td>
-                        <td>{{ \Carbon\Carbon::parse($registration->created_at)->format('d/m/Y') }}</td>
-                        <td>{{ ucfirst($registration->status) }}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+<div class="progress-section">
+    <!-- Card utama -->
+    <div class="progress-card">
+        <!-- Header card dengan gradasi atau warna utama -->
+        <div class="progress-header">
+            <h2 class="progress-title">Riwayat Permohonan</h2>
         </div>
 
-        <!-- Penugasan Section -->
-        <div class="box">
-            <h2>Penugasan</h2>
-            @if(isset($assignments) && $assignments->count() > 0)
-            <table class="user-table">
+        <!-- Isi card -->
+        <div class="progress-body">
+            <table class="progress-table">
                 <thead>
                     <tr>
                         <th>No.</th>
-                        <th>Judul Tugas</th>
-                        <th>Deadline</th>
                         <th>Status</th>
+                        <th>Keterangan Permohonan</th>
+                        <th>Tanggal dan Jam</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($assignments as $index => $assignment)
+                    @forelse($riwayatPermohonan as $index => $record)
                     <tr>
                         <td>{{ $index + 1 }}</td>
-                        <td>{{ $assignment->title }}</td>
-                        <td>{{ \Carbon\Carbon::parse($assignment->deadline)->format('d/m/Y') }}</td>
-                        <td>{{ ucfirst($assignment->status) }}</td>
+                        <td>
+                            @if($record['status'] == 'accepted')
+                                <span class="status-accepted">Diterima</span>
+                            @elseif($record['status'] == 'rejected')
+                                <span class="status-rejected">Ditolak</span>
+                            @elseif($record['status'] == 'pending')
+                                <span class="status-pending">Menunggu</span>
+                            @else
+                                {{ ucfirst($record['status']) }}
+                            @endif
+                        </td>
+                        <td>{{ $record['keterangan_status'] }}</td>
+                        <td>{{ \Carbon\Carbon::parse($record['created_at'])->format('d F Y H:i:s') }}</td>
                     </tr>
-                    @endforeach
+                    @empty
+                    <tr>
+                        <td colspan="4" class="empty-row">
+                            Tidak ada riwayat permohonan.
+                        </td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>
-            @else
-            <p>Tidak ada penugasan saat ini.</p>
-            @endif
         </div>
     </div>
 </div>

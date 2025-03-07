@@ -35,12 +35,6 @@
             <span class="nav-text">Daftar Peserta</span>
         </a>
 
-        <a href="{{ route('profile') }}" 
-           class="nav-item {{ request()->routeIs('profile') ? 'active' : '' }}">
-            <i class="fas fa-user-graduate nav-icon"></i>
-            <span class="nav-text">Profil</span>
-        </a>
-
         <!-- Tombol Logout dengan form POST -->
         <a href="#" class="nav-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             <i class="fas fa-sign-out-alt nav-icon"></i>
