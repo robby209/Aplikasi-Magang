@@ -60,3 +60,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/daftar-peserta', [PageController::class, 'showDaftarPeserta'])->name('daftar-peserta');
     Route::get('/admin/detail/{id}', [PageController::class, 'showAdminDetail'])->name('admin.detail');
 });
+
+// ======================
+// FALLBACK ROUTE (404)
+// ======================
+Route::fallback(function () {
+    return redirect('/'); // Mengarahkan ke halaman utama jika URL tidak ditemukan
+});
