@@ -1,7 +1,7 @@
-/* resources/css/app.css */
-
-/* Variabel warna */
-:root {
+/* ========================================= 
+   VARIABEL WARNA
+   ========================================= */
+   :root {
     --primary-color: #007BFF;       /* Warna utama sidebar */
     --secondary-color: #f8f9fa;     /* Warna background konten */
     --accent-color: #FF7F50;        /* Warna highlight active menu */
@@ -9,7 +9,9 @@
     --dark-text: #343a40;
 }
 
-/* Reset dasar */
+/* =========================================
+   RESET DASAR
+   ========================================= */
 body {
     margin: 0;
     padding: 0;
@@ -18,7 +20,9 @@ body {
     min-height: 100vh;
 }
 
-/* Sidebar */
+/* =========================================
+   SIDEBAR
+   ========================================= */
 .sidebar {
     width: 240px;
     background: var(--primary-color);
@@ -73,7 +77,9 @@ body {
     white-space: nowrap;
 }
 
-/* Konten Utama */
+/* =========================================
+   KONTEN UTAMA
+   ========================================= */
 .content {
     margin-left: 240px;
     padding: 40px;
@@ -82,7 +88,9 @@ body {
     transition: all 0.3s;
 }
 
-/* Responsif (max-width 768px) */
+/* =========================================
+   RESPONSIF (MAX-WIDTH 768PX)
+   ========================================= */
 @media (max-width: 768px) {
     .sidebar {
         position: static;
@@ -94,7 +102,9 @@ body {
     }
 }
 
-/* FORM */
+/* =========================================
+   FORM
+   ========================================= */
 .form-container {
     max-width: 800px;
     margin: 0 auto;
@@ -168,7 +178,9 @@ body {
     box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
 }
 
-/* Alert */
+/* =========================================
+   ALERT
+   ========================================= */
 .alert {
     padding: 15px 20px;
     border-radius: 8px;
@@ -190,18 +202,16 @@ body {
     border-color: #f5c6cb;
 }
 
+/* Kolom form jika lebih kecil */
 @media (max-width: 768px) {
     .date-row {
         flex-direction: column;
     }
 }
 
-
-
-/* ---------------------------------------
+/* =========================================
    DESAIN UNTUK HALAMAN PROGRESS
----------------------------------------- */
-
+   ========================================= */
 /* Wrapper utama */
 .progress-section {
     margin: 0 auto;
@@ -219,7 +229,7 @@ body {
     flex-direction: column;
 }
 
-/* Bagian header card (bisa pakai linear-gradient) */
+/* Bagian header card (linear-gradient) */
 .progress-header {
     background: linear-gradient(135deg, var(--primary-color), #0056b3);
     padding: 30px 20px;
@@ -284,4 +294,46 @@ body {
     text-align: center;
     font-style: italic;
     color: #888;
+}
+
+/* =========================================
+   MEDIA QUERY TAMBAHAN UNTUK PONSEL (MAX 600PX)
+   ========================================= */
+@media (max-width: 600px) {
+  /* Sidebar di ponsel (lebar penuh, tidak fixed) */
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-right: none; /* Opsional: hilangkan garis border */
+    padding: 15px;
+  }
+
+  /* Konten ponsel tidak perlu margin kiri */
+  .content {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  /* Form container lebih kecil di ponsel */
+  .form-container {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .form-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  /* Tabel progress:
+     - perkecil font agar muat
+     - tambahkan scroll horizontal jika kolom melampaui layar */
+  .progress-table {
+    font-size: 0.8rem;
+    display: block;      /* Bikin table jadi block */
+    overflow-x: auto;    /* Scroll horizontal jika kolom memanjang */
+    white-space: nowrap; /* Agar kolom tidak terpotong baris */
+  }
 }

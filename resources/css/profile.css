@@ -7,6 +7,7 @@
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
+/* Sidebar kiri */
 .profile-sidebar {
     width: 300px;
     background: #f8f9fa;
@@ -28,6 +29,7 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
+/* Menu navigasi di sidebar */
 .profile-nav ul {
     list-style: none;
     padding: 0;
@@ -53,17 +55,19 @@
     width: 20px;
 }
 
+/* Menu aktif */
 .profile-nav .active a {
     background: #007bff;
     color: white;
 }
 
+/* Bagian konten profil (kanan) */
 .profile-content {
     flex: 1;
     padding: 2rem;
 }
 
-/* Section Header (Judul + Tombol Edit) */
+/* Header section (judul + tombol) */
 .section-header {
     display: flex;
     align-items: center;
@@ -71,7 +75,6 @@
     margin-bottom: 1.5rem;
 }
 
-/* Bagian judul section */
 .profile-section h3 {
     color: #6c757d;
     font-size: 1.1rem;
@@ -79,6 +82,7 @@
     text-transform: uppercase;
 }
 
+/* Data informasi profil */
 .info-group {
     margin-bottom: 1.5rem;
 }
@@ -97,6 +101,7 @@
     border-bottom: 2px solid #f0f0f0;
 }
 
+/* Bagian bantuan (jika ada) */
 .help-section {
     margin-top: 2rem;
     padding-top: 2rem;
@@ -114,7 +119,7 @@
     margin-right: 8px;
 }
 
-/* Tombol Edit */
+/* Tombol edit */
 .btn-edit {
     background-color: #007bff;
     color: #fff;
@@ -128,4 +133,27 @@
 
 .btn-edit:hover {
     background-color: #0056b3;
+}
+
+/* =========================================
+   MEDIA QUERY UNTUK LAYAR KECIL (VERTIKAL)
+   ========================================= */
+@media (max-width: 768px) {
+    /* Susun jadi vertikal: sidebar di atas, konten di bawah */
+    .profile-container {
+        flex-direction: column;
+    }
+
+    /* Sidebar lebar penuh, sudut bundar di atas */
+    .profile-sidebar {
+        width: 100%;
+        border-radius: 15px 15px 0 0;
+        margin-bottom: 1rem; /* Beri jarak ke konten di bawah */
+    }
+
+    /* Konten juga lebar penuh, sudut bundar di bawah */
+    .profile-content {
+        width: 100%;
+        border-radius: 0 0 15px 15px;
+    }
 }
