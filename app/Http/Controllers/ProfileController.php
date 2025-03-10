@@ -1,12 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Redirect;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use App\Models\User;
 use App\Models\PklRegistration;
 
 class ProfileController extends Controller
@@ -19,26 +17,28 @@ class ProfileController extends Controller
         /** @var \App\Models\User $user */
         $user = Auth::user();
 
+        // Validasi input
         $request->validate([
             'name'    => 'required|string|max:255',
             'telepon' => 'required|string|max:20',
             'photo'   => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
+        // Jika user belum punya pklRegistration, suruh isi form dulu
+        if (!$user->pklRegistration) {
+            // Alihkan ke form PKL atau kembali ke profil dengan pesan kesalahan
+            return redirect()
+                ->route('profile') // Ganti ke route lain jika perlu, misalnya 'pkl.form'
+                ->withErrors(['msg' => 'Silakan isi form PKL terlebih dahulu!']);
+        }
+
         // Update data user
         $user->name = $request->name;
 
-        // Update data PKL Registration
-        if ($user->pklRegistration) {
-            $user->pklRegistration->telepon = $request->telepon;
-            $user->pklRegistration->save();
-        } else {
-            // Jika belum ada data PKL Registration, buat baru
-            PklRegistration::create([
-                'user_id' => $user->id,
-                'telepon' => $request->telepon
-            ]);
-        }
+        // Update data PKL Registration (tanpa menimbulkan error)
+        $user->pklRegistration()->update([
+            'telepon' => $request->telepon,
+        ]);
 
         // Handle upload foto
         if ($request->hasFile('photo')) {
@@ -46,12 +46,13 @@ class ProfileController extends Controller
             if ($user->photo_path) {
                 Storage::disk('public')->delete($user->photo_path);
             }
-            
+
             // Simpan foto baru
             $path = $request->file('photo')->store('profile_images', 'public');
             $user->photo_path = $path;
         }
 
+        // Simpan perubahan user
         $user->save();
 
         return redirect()->route('profile')->with('success', 'Profil berhasil diperbarui!');

@@ -5,6 +5,14 @@
 @section('content')
 <div class="admin-container">
     <h1 class="form-title">Daftar Peserta PKL</h1>
+
+    <!-- Tombol Filter dengan CSS yang lebih rapi -->
+    <div class="filter-buttons">
+        <a href="{{ route('daftar-peserta') }}" class="filter-btn">Semua</a>
+        <a href="{{ route('daftar-peserta', ['filter' => 'active']) }}" class="filter-btn">Masih Aktif</a>
+        <a href="{{ route('daftar-peserta', ['filter' => 'expired']) }}" class="filter-btn">Sudah Melewati Tanggal</a>
+    </div>
+
     <table class="admin-table">
         <thead>
             <tr>
@@ -99,4 +107,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
 @endsection

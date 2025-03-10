@@ -139,16 +139,27 @@
    MEDIA QUERY UNTUK LAYAR KECIL (VERTIKAL)
    ========================================= */
 @media (max-width: 768px) {
+    /* Opsional: mencegah scroll horizontal global */
+    body {
+        overflow-x: hidden;
+    }
+
     /* Susun jadi vertikal: sidebar di atas, konten di bawah */
     .profile-container {
         flex-direction: column;
+        /* Ubah margin agar tidak ada gap berlebih kiri-kanan */
+        margin: 1rem 0;
+        /* Pastikan lebar penuh */
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
     /* Sidebar lebar penuh, sudut bundar di atas */
     .profile-sidebar {
         width: 100%;
         border-radius: 15px 15px 0 0;
-        margin-bottom: 1rem; /* Beri jarak ke konten di bawah */
+        margin-bottom: 1rem;
     }
 
     /* Konten juga lebar penuh, sudut bundar di bawah */

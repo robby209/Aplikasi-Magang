@@ -104,7 +104,7 @@
                             <div class="mt-2">
                                 <img src="{{ asset('storage/' . $user->photo_path) }}" 
                                      alt="Current Photo" 
-                                     style="max-width: 200px;">
+                                     style="max-width: 100px;">
                             </div>
                         @endif
                     </div>

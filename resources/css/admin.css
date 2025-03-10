@@ -1,35 +1,37 @@
-/* admin.css */
-
-:root {
-    --primary-color: #007BFF;
-    --secondary-color: #f8f9fa;
-    --accent-color: #FF7F50;
-    --light-bg: #ffffff;
-    --dark-text: #343a40;
+/* =======================
+   Variabel & Reset Dasar
+   ======================= */
+   :root {
+    --primary-color: #007BFF;    /* Warna utama (sidebar, heading, dll.) */
+    --secondary-color: #f8f9fa;  /* Latar tambahan (baris genap tabel, misalnya) */
+    --accent-color: #FF7F50;     /* Aksen (untuk nav-item active, dsb.) */
+    --light-bg: #ffffff;         /* Latar putih umum */
+    --dark-text: #343a40;        /* Warna teks utama (abu gelap) */
 }
 
-/* Reset & body */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: var(--light-bg);
     margin: 0;
     padding: 0;
-    display: flex;
-    min-height: 100vh;
+    display: flex;           /* Layout flex untuk layar besar (desktop) */
+    min-height: 100vh;       /* Tinggi minimal 100% viewport */
     color: var(--dark-text);
 }
 
-/* Sidebar */
+/* ==================
+   Sidebar
+   ================== */
 .sidebar {
     width: 280px;
     background: var(--primary-color);
-    color: white;
+    color: #fff;
     padding: 25px;
     position: fixed;
     height: 100%;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1000;
-    border-right: 1px solid #0056b3;
+    border-right: 1px solid #0056b3; /* Garis tipis di sisi kanan sidebar */
 }
 
 .sidebar-header {
@@ -79,17 +81,16 @@ body {
     transition: all 0.3s;
 }
 
-/* Konten */
+/* ==================
+   Konten
+   ================== */
 .content {
-    margin-left: 280px;
+    margin-left: 280px; /* Supaya konten tidak tertutup sidebar */
     padding: 40px;
     flex-grow: 1;
     background: var(--light-bg);
 }
 
-/* admin.css */
-
-/* Bagian Container dan Judul */
 .admin-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -106,7 +107,9 @@ body {
     font-size: 2.2rem;
 }
 
-/* Tabel Admin */
+/* ==================
+   Tabel Admin
+   ================== */
 .admin-table {
     width: 100%;
     border-collapse: collapse;
@@ -122,10 +125,12 @@ body {
     color: #fff;
 }
 .admin-table tbody tr:nth-child(even) {
-    background: #f8f9fa;
+    background: var(--secondary-color);
 }
 
-/* Tombol Aksi */
+/* ==================
+   Tombol Aksi (Detail, dsb.)
+   ================== */
 .action-btn {
     background: linear-gradient(135deg, var(--primary-color), #0056b3);
     color: white;
@@ -142,7 +147,9 @@ body {
     box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
 }
 
-/* Modal Overlay */
+/* ==================
+   Modal Overlay
+   ================== */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -150,7 +157,7 @@ body {
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
-    display: none; /* Default: hidden */
+    display: none; /* Tersembunyi secara default */
     align-items: center;
     justify-content: center;
     z-index: 9999;
@@ -176,7 +183,7 @@ body {
     gap: 10px;
 }
 
-/* Tombol di Modal */
+/* Tombol di dalam Modal */
 .close-btn {
     background: #6c757d;
     color: #fff;
@@ -220,4 +227,63 @@ body {
 }
 .reject-btn:hover {
     background: #c82333;
+}
+
+/* ==================
+   Filter Buttons
+   ================== */
+.filter-buttons {
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 8px; /* jarak horizontal antar tombol */
+}
+
+.filter-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+.filter-btn:hover {
+    background-color: #0056b3;
+}
+
+/* ==================
+   MEDIA QUERY (HP)
+   ================== */
+@media (max-width: 768px) {
+    body {
+        display: block; /* Nonaktifkan flex layout saat mobile */
+        min-height: auto;
+    }
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        padding: 20px;
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .admin-container {
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .admin-table {
+        display: block;      /* Tabel jadi block agar bisa scroll */
+        overflow-x: auto;
+        white-space: nowrap; /* Kolom tidak wrap, tapi muncul scroll */
+        font-size: 0.9rem;
+    }
 }

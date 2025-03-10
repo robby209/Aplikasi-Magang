@@ -30,26 +30,45 @@ class PageController extends Controller
         return view('user.profile.profile', ['user' => $user]);
     }
 
-    // Menampilkan halaman admin dengan daftar pendaftar (yang statusnya pending)
+    // Menampilkan halaman admin dengan daftar pendaftar (status 'pending')
     public function showAdmin()
     {
-        // Mengambil data pendaftaran PKL dengan status 'pending' beserta data user terkait
-        $pklRegistrations = PklRegistration::with('user')->where('status', 'pending')->get();
+        $pklRegistrations = PklRegistration::with('user')
+            ->where('status', 'pending')
+            ->get();
         return view('admin.admin', ['pklRegistrations' => $pklRegistrations]);
     }
 
-    // Menampilkan halaman daftar peserta (yang statusnya accepted)
-    public function showDaftarPeserta()
+    // Menampilkan halaman daftar peserta (status 'accepted') + FILTER expired/active
+    public function showDaftarPeserta(Request $request)
     {
-        // Mengambil data pendaftaran PKL dengan status 'accepted'
-        $participants = PklRegistration::with('user')->where('status', 'accepted')->get();
+        // Ambil parameter ?filter=expired atau ?filter=active (bisa juga ?filter=all)
+        $filter = $request->query('filter');
+        $today  = now()->startOfDay();
+
+        // Query dasar: peserta 'accepted'
+        $participantsQuery = PklRegistration::with('user')
+            ->where('status', 'accepted');
+
+        // Cek filter
+        if ($filter === 'expired') {
+            // end_date < hari ini
+            $participantsQuery->whereDate('end_date', '<', $today);
+        } elseif ($filter === 'active') {
+            // end_date >= hari ini
+            $participantsQuery->whereDate('end_date', '>=', $today);
+        }
+        // Kalau filter tidak ada, tampilkan semua (status accepted).
+
+        // Ambil data dari query
+        $participants = $participantsQuery->get();
+
         return view('admin.daftarPeserta', ['participants' => $participants]);
     }
 
     // (Opsional) Method untuk menampilkan detail pendaftar admin
     public function showAdminDetail($id)
     {
-        // Mengambil detail pendaftaran berdasarkan id
         $registration = PklRegistration::with('user')->findOrFail($id);
         return view('admin.detail', ['registration' => $registration]);
     }
