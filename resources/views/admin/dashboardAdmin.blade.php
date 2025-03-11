@@ -15,7 +15,6 @@
     
     <!-- CSS Admin -->
     @vite(['resources/css/admin.css'])
-    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 </head>
 <body>
     <div class="sidebar">

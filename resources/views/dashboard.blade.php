@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Memanggil CSS via Vite -->
-    @vite(['resources/css/user.css', 'resources/js/app.js'])
+    @vite(['resources/css/user.css'])
 </head>
 <body>
     <!-- SIDEBAR -->
