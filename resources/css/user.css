@@ -89,7 +89,7 @@ body {
 }
 
 /* =========================================
-   RESPONSIF (MAX-WIDTH 768PX)
+   RESPONSIF 
    ========================================= */
 @media (max-width: 768px) {
     .sidebar {
@@ -229,7 +229,6 @@ body {
     flex-direction: column;
 }
 
-/* Bagian header card (linear-gradient) */
 .progress-header {
     background: linear-gradient(135deg, var(--primary-color), #0056b3);
     padding: 30px 20px;
@@ -297,25 +296,22 @@ body {
 }
 
 /* =========================================
-   MEDIA QUERY TAMBAHAN UNTUK PONSEL (MAX 600PX)
+   UNTUK PONSEL 
    ========================================= */
 @media (max-width: 600px) {
-  /* Sidebar di ponsel (lebar penuh, tidak fixed) */
   .sidebar {
     position: static;
     width: 100%;
     height: auto;
-    border-right: none; /* Opsional: hilangkan garis border */
+    border-right: none; 
     padding: 15px;
   }
 
-  /* Konten ponsel tidak perlu margin kiri */
   .content {
     margin-left: 0;
     padding: 20px;
   }
 
-  /* Form container lebih kecil di ponsel */
   .form-container {
     width: 90%;
     margin: 20px auto;
@@ -327,13 +323,10 @@ body {
     margin-bottom: 20px;
   }
 
-  /* Tabel progress:
-     - perkecil font agar muat
-     - tambahkan scroll horizontal jika kolom melampaui layar */
   .progress-table {
     font-size: 0.8rem;
-    display: block;      /* Bikin table jadi block */
-    overflow-x: auto;    /* Scroll horizontal jika kolom memanjang */
-    white-space: nowrap; /* Agar kolom tidak terpotong baris */
+    display: block;      
+    overflow-x: auto;    
+    white-space: nowrap; 
   }
 }

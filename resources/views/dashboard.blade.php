@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Meta viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Keamanan -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -15,14 +13,11 @@
     
     <title>@yield('title', 'Dashboard')</title>
 
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <!-- Memanggil CSS via Vite -->
     @vite(['resources/css/user.css'])
 </head>
 <body>
-    <!-- SIDEBAR -->
+    
     <div class="sidebar">
         <div class="sidebar-header">
             <span class="brand-text">Dashboard</span>

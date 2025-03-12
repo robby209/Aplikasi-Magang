@@ -5,15 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@yield('title', 'Dashboard')</title>
     
-    <!-- Meta cache control agar halaman tidak tersimpan -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
 
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    
-    <!-- CSS Admin -->
     @vite(['resources/css/admin.css'])
 </head>
 <body>
@@ -34,7 +30,6 @@
             <span class="nav-text">Daftar Peserta</span>
         </a>
 
-        <!-- Tombol Logout dengan form POST -->
         <a href="#" class="nav-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             <i class="fas fa-sign-out-alt nav-icon"></i>
             <span class="nav-text">Logout</span>

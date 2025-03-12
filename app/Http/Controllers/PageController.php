@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\PklRegistration; // Pastikan model ini ada
+use App\Models\PklRegistration; 
 
 class PageController extends Controller
 {
@@ -58,15 +58,13 @@ class PageController extends Controller
             // end_date >= hari ini
             $participantsQuery->whereDate('end_date', '>=', $today);
         }
-        // Kalau filter tidak ada, tampilkan semua (status accepted).
-
         // Ambil data dari query
         $participants = $participantsQuery->get();
 
         return view('admin.daftarPeserta', ['participants' => $participants]);
     }
 
-    // (Opsional) Method untuk menampilkan detail pendaftar admin
+    // Untuk menampilkan detail pendaftar admin
     public function showAdminDetail($id)
     {
         $registration = PklRegistration::with('user')->findOrFail($id);

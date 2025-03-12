@@ -2,11 +2,11 @@
    Variabel & Reset Dasar
    ======================= */
    :root {
-    --primary-color: #007BFF;    /* Warna utama (sidebar, heading, dll.) */
-    --secondary-color: #f8f9fa;  /* Latar tambahan (baris genap tabel, misalnya) */
-    --accent-color: #FF7F50;     /* Aksen (untuk nav-item active, dsb.) */
-    --light-bg: #ffffff;         /* Latar putih umum */
-    --dark-text: #343a40;        /* Warna teks utama (abu gelap) */
+    --primary-color: #007BFF;    
+    --secondary-color: #f8f9fa;  
+    --accent-color: #FF7F50;     
+    --light-bg: #ffffff;         
+    --dark-text: #343a40;        
 }
 
 body {
@@ -14,8 +14,8 @@ body {
     background: var(--light-bg);
     margin: 0;
     padding: 0;
-    display: flex;           /* Layout flex untuk layar besar (desktop) */
-    min-height: 100vh;       /* Tinggi minimal 100% viewport */
+    display: flex;           
+    min-height: 100vh;       
     color: var(--dark-text);
 }
 
@@ -235,7 +235,7 @@ body {
 .filter-buttons {
     margin-bottom: 1rem;
     display: flex;
-    gap: 8px; /* jarak horizontal antar tombol */
+    gap: 8px; 
 }
 
 .filter-btn {
@@ -258,7 +258,7 @@ body {
    ================== */
 @media (max-width: 768px) {
     body {
-        display: block; /* Nonaktifkan flex layout saat mobile */
+        display: block; 
         min-height: auto;
     }
 
@@ -281,9 +281,9 @@ body {
     }
 
     .admin-table {
-        display: block;      /* Tabel jadi block agar bisa scroll */
+        display: block;      
         overflow-x: auto;
-        white-space: nowrap; /* Kolom tidak wrap, tapi muncul scroll */
+        white-space: nowrap; 
         font-size: 0.9rem;
     }
 }

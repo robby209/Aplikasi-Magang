@@ -10,17 +10,15 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    /**
-     * Menampilkan halaman login.
-     */
+    //Menampilkan halaman login.
+     
     public function showLoginForm()
     {
         return view('auth.login');
     }
 
-    /**
-     * Proses login pengguna.
-     */
+    //Proses login pengguna.
+     
     public function login(Request $request)
     {
         // Validasi input
@@ -48,18 +46,17 @@ class AuthController extends Controller
         ]);
     }
 
-    /**
-     * Menampilkan halaman registrasi.
-     */
+    //Menampilkan halaman registrasi.
+     
     public function showRegistrationForm()
     {
         return view('auth.register');
     }
 
-    /**
-     * Proses pendaftaran pengguna.
-     * Hanya menggunakan name, email, dan password (dengan konfirmasi).
-     */
+    //Proses pendaftaran pengguna.Hanya menggunakan name, email, dan password (dengan konfirmasi).
+     
+     
+     
     public function register(Request $request)
     {
         // Validasi input
@@ -80,9 +77,7 @@ class AuthController extends Controller
         return redirect()->route('login')->with('success', 'Registrasi berhasil! Silakan login.');
     }
 
-    /**
-     * Proses logout pengguna.
-     */
+    //Proses logout pengguna.
     public function logout()
     {
         Auth::logout();

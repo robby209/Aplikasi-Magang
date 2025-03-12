@@ -12,7 +12,7 @@ class AdminMiddleware
     {
         // Pastikan user sudah login dan memiliki role 'admin'
         if (Auth::check() && Auth::user()->role === 'admin') {
-            return $next($request); // Jika admin, lanjutkan request
+            return $next($request); 
         }
 
         // Jika bukan admin, redirect ke halaman lain (misal '/form') dengan pesan error

@@ -6,7 +6,6 @@
 <div class="admin-container">
     <h1 class="form-title">Daftar Peserta PKL</h1>
 
-    <!-- Tombol Filter dengan CSS yang lebih rapi -->
     <div class="filter-buttons">
         <a href="{{ route('daftar-peserta') }}" class="filter-btn">Semua</a>
         <a href="{{ route('daftar-peserta', ['filter' => 'active']) }}" class="filter-btn">Masih Aktif</a>
@@ -56,7 +55,7 @@
     </table>
 </div>
 
-<!-- Modal Overlay untuk Detail Peserta -->
+<!-- Detail Peserta -->
 <div id="detailModal" class="modal-overlay">
     <div class="modal-content">
         <h2>Detail Peserta</h2>

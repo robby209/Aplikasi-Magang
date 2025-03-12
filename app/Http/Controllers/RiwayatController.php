@@ -12,7 +12,6 @@ class RiwayatController extends Controller
         // Ambil data pendaftaran PKL berdasarkan user yang sedang login
         $registration = PklRegistration::where('user_id', auth()->user()->id)->first();
 
-        // Pastikan $registration tidak null sebelum mengakses atributnya
         if ($registration) {
             $riwayatPermohonan = [
                 [
@@ -22,22 +21,21 @@ class RiwayatController extends Controller
                 ]
             ];
         } else {
-            $riwayatPermohonan = []; // Jika tidak ada data
+            $riwayatPermohonan = []; 
         }
 
         return view('progress', compact('riwayatPermohonan'));
     }
 
-    /**
-     * Fungsi untuk memetakan status ke keterangan permohonan yang diinginkan.
-     */
+    //Fungsi untuk memetakan status ke keterangan permohonan yang diinginkan.
+
     private function getKeteranganStatus($status)
     {
         if (!$status) {
             return 'Status tidak diketahui';
         }
 
-        $status = strtolower($status); // Ubah ke huruf kecil agar perbandingan tidak case-sensitive
+        $status = strtolower($status); 
 
         switch ($status) {
             case 'pending':

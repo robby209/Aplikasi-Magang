@@ -14,7 +14,7 @@ class PklController extends Controller
             return redirect()->route('login')->with('error', 'Anda harus login terlebih dahulu.');
         }
 
-        // Validasi input dengan custom error message (Bahasa Indonesia)
+        // Validasi input dengan custom error message 
         $validated = $request->validate([
             'name'         => 'required|string|max:255',
             'nim'          => 'required|string|max:50',
@@ -69,7 +69,7 @@ class PklController extends Controller
         $registration->anggota    = $validated['anggota'];
         $registration->start_date = $validated['start_date'];
         $registration->end_date   = $validated['end_date'];
-        // Status default 'pending' diatur oleh migration
+        
         $registration->save();
 
         return redirect()->back()->with('success', 'Pendaftaran PKL berhasil disimpan.');

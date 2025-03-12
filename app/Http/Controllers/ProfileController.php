@@ -9,9 +9,8 @@ use App\Models\PklRegistration;
 
 class ProfileController extends Controller
 {
-    /**
-     * Memperbarui data profil user.
-     */
+    //Memperbarui data profil user.
+     
     public function updateProfile(Request $request)
     {
         /** @var \App\Models\User $user */
@@ -24,18 +23,17 @@ class ProfileController extends Controller
             'photo'   => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        // Jika user belum punya pklRegistration, suruh isi form dulu
         if (!$user->pklRegistration) {
             // Alihkan ke form PKL atau kembali ke profil dengan pesan kesalahan
             return redirect()
-                ->route('profile') // Ganti ke route lain jika perlu, misalnya 'pkl.form'
+                ->route('profile') 
                 ->withErrors(['msg' => 'Silakan isi form PKL terlebih dahulu!']);
         }
 
         // Update data user
         $user->name = $request->name;
 
-        // Update data PKL Registration (tanpa menimbulkan error)
+        // Update data PKL Registration 
         $user->pklRegistration()->update([
             'telepon' => $request->telepon,
         ]);

@@ -4,14 +4,11 @@
 
 @section('content')
 <div class="progress-section">
-    <!-- Card utama -->
     <div class="progress-card">
-        <!-- Header card dengan gradasi atau warna utama -->
         <div class="progress-header">
             <h2 class="progress-title">Riwayat Permohonan</h2>
         </div>
 
-        <!-- Isi card -->
         <div class="progress-body">
             <table class="progress-table">
                 <thead>

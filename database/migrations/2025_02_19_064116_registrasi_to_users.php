@@ -24,7 +24,6 @@ return new class extends Migration
             $table->string('anggota');
             $table->date('start_date');
             $table->date('end_date');
-            // Tambahkan kolom status dengan nilai default 'pending'
             $table->enum('status', ['pending', 'accepted', 'rejected'])->default('pending');
             $table->timestamps();
         });
